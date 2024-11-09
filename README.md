@@ -1,27 +1,45 @@
 # CmsApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+![Screenshot](./img/snapcms.jpg)
 
-## Development server
+**Descripción del Proyecto**  
+ Alicación simple y reducida de CMS con Angular, permite la creación, edición, visualización y eliminación de clientes y facturas.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requisitos
 
-## Code scaffolding
+- **Node.js** (versión 18 o superior)
+- **npm** (viene instalado con Node.js)
+- **Angular CLI** (versión 17)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instalación
 
-## Build
+Para empezar a trabajar con este proyecto en tu máquina local, sigue los siguientes pasos:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Instalar las dependencias:**
 
-## Running unit tests
+   Navega al directorio del proyecto y ejecuta el siguiente comando para instalar todas las dependencias necesarias:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```
+   cd cms-app
+   npm install
+   ```
 
-## Running end-to-end tests
+2. **Ejecutar la aplicación:**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   Para iniciar la aplicación en modo de desarrollo, ejecuta el siguiente comando:
 
-## Further help
+   ```
+   ng serve
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   Luego abre tu navegador y visita "http://localhost:4200".
+
+## Dependencias
+
+- **Angular CLI**
+- **Bootstrap**
+- **SweetAlert2**
+
+## Licencia
+
+Este proyecto está bajo la **MIT License**. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
