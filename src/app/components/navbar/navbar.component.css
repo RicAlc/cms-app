@@ -1,0 +1,14 @@
+.brand {
+  font-size: 2rem;
+  padding-inline: 1rem;
+  font-weight: bold;
+  color: #2c2c2c;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+.brand:hover {
+  color: #ff6347;
+  transform: scale(1.1);
+}

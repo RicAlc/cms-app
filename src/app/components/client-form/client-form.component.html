@@ -1,0 +1,120 @@
+<section class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6 col-xl-4">
+      <h2 class="text-white mb-4 mt-5">Formulario cliente</h2>
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="clientForm" (submit)="handleSubmit()">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre</label>
+              <input
+                required
+                formControlName="nombre"
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Nombre"
+              />
+              @if(clientForm.controls['nombre'].invalid &&
+              (clientForm.controls['nombre'].dirty ||
+              clientForm.controls['nombre'].touched)){
+              @if(clientForm.controls['nombre'].errors?.['required']){
+              <div class="alert alert-danger py-1 mt-1">
+                Nombre no puede ser vacío
+              </div>
+              } @if(clientForm.controls['nombre'].errors?.['minlength']){
+              <div class="alert alert-danger py-1 mt-1">
+                Nombre debe tener al menos 3 caracteres
+              </div>
+              } }
+            </div>
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Apellido</label>
+              <input
+                formControlName="apellido"
+                required
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder="Apellido"
+              />
+            </div>
+            @if(clientForm.controls['apellido'].invalid &&
+            (clientForm.controls['apellido'].dirty ||
+            clientForm.controls['apellido'].touched)){
+            @if(clientForm.controls['apellido'].errors?.['required']){
+            <div class="alert alert-danger py-1 mt-1">
+              Apellido no puede ser vacío
+            </div>
+            } @if(clientForm.controls['apellido'].errors?.['minlength']){
+            <div class="alert alert-danger py-1 mt-1">
+              Apellido debe tener al menos 2 caracteres
+            </div>
+            } }
+            <div class="mb-3">
+              <label for="age" class="form-label">Edad</label>
+              <input
+                formControlName="edad"
+                required
+                type="text"
+                class="form-control"
+                id="age"
+                placeholder="Edad"
+              />
+              @if(clientForm.controls['edad'].invalid &&
+              (clientForm.controls['edad'].dirty ||
+              clientForm.controls['edad'].touched)){
+              @if(clientForm.controls['edad'].errors?.['required']){
+              <div class="alert alert-danger py-1 mt-1">
+                Edad no puede ser vacío
+              </div>
+              } @if(clientForm.controls['edad'].errors?.['min']){
+              <div class="alert alert-danger py-1 mt-1">
+                Edad debe ser 18 o mayor
+              </div>
+              } }
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Correo electrónico</label
+              >
+              <input
+                formControlName="correo_electronico"
+                required
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              @if(clientForm.controls['correo_electronico'].invalid &&
+              (clientForm.controls['correo_electronico'].dirty ||
+              clientForm.controls['correo_electronico'].touched)){
+              @if(clientForm.controls['correo_electronico'].errors?.['required']){
+              <div class="alert alert-danger py-1 mt-1">
+                Correo electrónico no puede ser vacío
+              </div>
+              }
+              @if(clientForm.controls['correo_electronico'].errors?.['email']){
+              <div class="alert alert-danger py-1 mt-1">
+                Correo electrónico no es válido
+              </div>
+              } }
+            </div>
+          </form>
+          <div class="d-flex justify-content-end">
+            <button
+              (click)="handleSubmit()"
+              type="submit"
+              class="btn btn-primary me-2"
+            >
+              Guardar
+            </button>
+            <button (click)="goBack()" type="button" class="btn btn-danger">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

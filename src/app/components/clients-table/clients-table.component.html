@@ -1,0 +1,56 @@
+<section class="container">
+  <div class="d-flex justify-content-between align-items-center mt-5 mb-4">
+    <h2 class="text-white">Listado de clientes</h2>
+    <button (click)="handleAdd()" type="button" class="btn btn-primary">
+      Agregar
+    </button>
+  </div>
+  <div class="card shadow-sm">
+    <div class="card-body table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            @for(title of titles; track title.id){
+            <th scope="col" class="text-center">
+              {{ title.name }}
+            </th>
+            }
+          </tr>
+        </thead>
+        <tbody>
+          @if(clients.length > 0) { @for(client of clients; track client.id){
+          <tr>
+            <td>{{ client.nombre }}</td>
+            <td>{{ client.apellido }}</td>
+            <td>{{ client.correo_electronico }}</td>
+            <td>
+              <div class="d-flex justify-content-around">
+                <button
+                  (click)="handleEdit(client.id)"
+                  class="btn btn-primary btn-sm"
+                  type="button"
+                  title="Editar"
+                >
+                  Editar
+                </button>
+                <button
+                  (click)="handleDelete(client.id)"
+                  class="btn btn-danger btn-sm"
+                  type="button"
+                  title="Eliminar"
+                >
+                  Eliminar
+                </button>
+              </div>
+            </td>
+          </tr>
+          } } @else {
+          <tr>
+            <td colspan="6" class="text-center">Sin registros</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

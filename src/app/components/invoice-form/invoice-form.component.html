@@ -1,0 +1,89 @@
+<section class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6 col-xl-4">
+      <h2 class="mt-5 mb-4 text-white">Formulario factura</h2>
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="invoiceForm" (submit)="handleSubmit()">
+            <div class="mb-3">
+              <label for="name" class="form-label">Cliente</label>
+              <select
+                formControlName="id_usuario"
+                name="cliente"
+                id="cliente"
+                class="form-select"
+              >
+                <option value="0">Seleccionar</option>
+                @for(client of clients; track client.it){
+                <option value="{{ client.id }}">{{ client.nombre }}</option>
+                }
+              </select>
+              @if(invoiceForm.controls['id_usuario'].invalid &&
+              (invoiceForm.controls['id_usuario'].dirty ||
+              invoiceForm.controls['id_usuario'].touched)){
+              @if(invoiceForm.controls['id_usuario'].errors?.['min']){
+              <div class="alert alert-danger py-1 mt-1">
+                Debe seleccionar un cliente
+              </div>
+              } }
+            </div>
+            <div class="mb-3">
+              <label for="balance" class="form-label">Saldo</label>
+              <input
+                formControlName="saldo"
+                required
+                type="text"
+                class="form-control"
+                id="balance"
+                placeholder="00.00"
+              />
+              @if(invoiceForm.controls['saldo'].invalid &&
+              (invoiceForm.controls['saldo'].dirty ||
+              invoiceForm.controls['saldo'].touched)){
+              @if(invoiceForm.controls['saldo'].errors?.['required']){
+              <div class="alert alert-danger py-1 mt-1">
+                Saldo no puede ser vacío
+              </div>
+              } @if(invoiceForm.controls['saldo'].errors?.['min']){
+              <div class="alert alert-danger">Saldo debe ser mayor a 1</div>
+              } }
+            </div>
+            <div class="mb-3">
+              <label for="billingDate" class="form-label"
+                >Fecha de facturación</label
+              >
+              <input
+                formControlName="fecha_facturacion"
+                required
+                type="date"
+                class="form-control"
+                id="billingDate"
+                placeholder="0001-01-01"
+              />
+              @if(invoiceForm.controls['fecha_facturacion'].invalid &&
+              (invoiceForm.controls['fecha_facturacion'].dirty ||
+              invoiceForm.controls['fecha_facturacion'].touched)){
+              @if(invoiceForm.controls['fecha_facturacion'].errors?.['required']){
+              <div class="alert alert-danger py-1 mt-1">
+                Fecha de facturación no puede ser vacía
+              </div>
+              } }
+            </div>
+          </form>
+          <div class="d-flex justify-content-end">
+            <button
+              (click)="handleSubmit()"
+              type="submit"
+              class="btn btn-primary me-2"
+            >
+              Guardar
+            </button>
+            <button (click)="goBack()" type="button" class="btn btn-danger">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
